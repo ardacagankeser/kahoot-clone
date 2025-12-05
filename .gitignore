@@ -1,22 +1,37 @@
-# --- Frontend (Node/JS) ---
-**/node_modules/
-**/dist/
-**/build/
+# environment variable file
 .env
 .env.local
+.env.*.local
+*.pem
+*.key
+
+# Dependencies
+**/node_modules/
+
+# Build Outputs (Production code)
+**/dist/
+**/build/
+**/out/
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# --- Backend (Go) ---
-# Binaries
+# Framework specific
+.next/
+.nuxt/
+.output/
+
+# Binaries (Windows, Mac, Linux)
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
+# Test binaries
 *.test
 
 # Output of the go coverage tool
@@ -25,8 +40,21 @@ yarn-error.log*
 # Go workspace file
 go.work
 
-# --- General / Editor ---
+# Vendor
+vendor/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / editor
 .vscode/
 .idea/
-.DS_Store
-tmp/
+*.swp
+*.swo

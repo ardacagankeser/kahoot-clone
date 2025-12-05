@@ -2,6 +2,10 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import Button from './lib/Button.svelte';
+  import QuizCard from './lib/QuizCard.svelte';
+
+  let quizzes: {_id: string, name: string}[] = [];
 
   async function getQuizzes() {
     let response = await fetch("http://localhost:3000/api/quizzes")
@@ -11,7 +15,7 @@
     }
 
     let json = await response.json();
-    console.log(json);
+    quizzes = json;
   }
 
   function connect() {
@@ -34,6 +38,14 @@
 <button on:click={connect}>
   Connect
 </button>
+
+{#each quizzes as quiz}
+  <QuizCard {quiz} />
+{/each}
+
+<Button>
+  <p>click</p>
+</Button>
 
 <main>
   <div>
