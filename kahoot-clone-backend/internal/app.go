@@ -10,8 +10,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"quiz.com/quiz/internal/collection"
-	"quiz.com/quiz/internal/controller"
+	"quiz.com/quiz/internal/handler"
+	"quiz.com/quiz/internal/repository"
 	"quiz.com/quiz/internal/service"
 )
 
@@ -34,18 +34,18 @@ func (a *App) setupHttp() {
 	app := fiber.New()
 	app.Use(cors.New())
 
-	quizController := controller.Quiz(a.quizService)
-	app.Get("/api/quizzes", quizController.GetQuizzes)
+	quizHandler := handler.NewQuizHandler(a.quizService)
+	app.Get("/api/quizzes", quizHandler.GetQuizzes)
 
-	wsController := controller.Ws(a.netService)
-	app.Get("/ws", websocket.New(wsController.Ws))
+	wsHandler := handler.NewWebsocketHandler(a.netService)
+	app.Get("/ws", websocket.New(wsHandler.Ws))
 
 	log.Fatal(app.Listen(":3000"))
 	a.httpServer = app
 }
 
 func (a *App) setupServices() {
-	a.quizService = service.Quiz(collection.Quiz(a.database.Collection("quizzes")))
+	a.quizService = service.NewQuizService(repository.NewQuizRepository(a.database.Collection("quizzes")))
 	a.netService = service.Net(a.quizService)
 }
 

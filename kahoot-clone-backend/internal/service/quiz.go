@@ -1,20 +1,20 @@
 package service
 
 import (
-	"quiz.com/quiz/internal/collection"
 	"quiz.com/quiz/internal/entity"
+	"quiz.com/quiz/internal/repository"
 )
 
 type QuizService struct {
-	quizCollection *collection.QuizCollection
+	quizRepository *repository.QuizRepository
 }
 
-func Quiz(quizCollection *collection.QuizCollection) *QuizService {
+func NewQuizService(quizRepository *repository.QuizRepository) *QuizService {
 	return &QuizService{
-		quizCollection: quizCollection,
+		quizRepository: quizRepository,
 	}
 }
 
 func (s QuizService) GetQuizzes() ([]entity.Quiz, error) {
-	return s.quizCollection.GetQuizzes()
+	return s.quizRepository.GetQuizzes()
 }

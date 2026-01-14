@@ -1,4 +1,4 @@
-package controller
+package handler
 
 import (
 	"log"
@@ -7,17 +7,17 @@ import (
 	"quiz.com/quiz/internal/service"
 )
 
-type WebsocketController struct {
+type WebsocketHandler struct {
 	netService *service.NetService
 }
 
-func Ws(netService *service.NetService) WebsocketController {
-	return WebsocketController{
+func NewWebsocketHandler(netService *service.NetService) WebsocketHandler {
+	return WebsocketHandler{
 		netService: netService,
 	}
 }
 
-func (c WebsocketController) Ws(con *websocket.Conn) {
+func (h WebsocketHandler) Ws(con *websocket.Conn) {
 	var (
 		mt  int
 		msg []byte
@@ -29,6 +29,6 @@ func (c WebsocketController) Ws(con *websocket.Conn) {
 			break
 		}
 
-		c.netService.OnIncomingMessage(con, mt, msg)
+		h.netService.OnIncomingMessage(con, mt, msg)
 	}
 }
