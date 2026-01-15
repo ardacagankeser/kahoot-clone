@@ -6,10 +6,10 @@
 
 ## Folder Structure
 
-### Backend (`kahoot-clone-backend/`)
+### Backend (`backend/`)
 
 ```
-kahoot-clone-backend/
+backend/
 ├── cmd/
 │   └── main.go              # Entry point only
 ├── internal/
@@ -41,10 +41,10 @@ kahoot-clone-backend/
 - `service/` calls `repository/`. Contains business rules.
 - `repository/` talks to MongoDB. Returns entities.
 
-### Frontend (`kahoot-clone-frontend/`)
+### Frontend (`frontend/`)
 
 ```
-kahoot-clone-frontend/
+frontend/
 ├── src/
 │   ├── main.ts              # Mount app
 │   ├── App.svelte           # Root component, routing

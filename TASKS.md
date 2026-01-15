@@ -413,7 +413,7 @@ For each task, verify:
 
 **Scope:**
 - Display question text
-- 4 answer buttons (colored, Kahoot-style)
+- 4 answer buttons (colored, quiz-style)
 - Timer display
 - Disable after answering
 
@@ -487,7 +487,7 @@ For each task, verify:
 
 ### Task 7.3: Visual Polish
 
-**Goal:** Make it look like Kahoot
+**Goal:** Match the visual style of modern quiz platforms
 
 **Scope:**
 - Colored answer buttons (red, blue, green, yellow)
