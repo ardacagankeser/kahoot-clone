@@ -181,3 +181,20 @@ Do not use these terms anywhere in code or docs:
 | response | answer |
 | test | quiz |
 | admin | host |
+
+---
+
+## Terminology Enforcement
+
+The canonical terms defined in this document **must** be used consistently across:
+
+- Source code (variable names, function names, struct names)
+- Git commit messages
+- Documentation files (`*.md`)
+- Comments in code
+- WebSocket event names
+
+**Violations:**
+- Any use of a forbidden term is a rule violation.
+- Commits containing forbidden terms must be rejected or amended.
+- Code reviews must enforce term consistency.

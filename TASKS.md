@@ -12,6 +12,36 @@
 
 ---
 
+## Task Execution Protocol
+
+### Before Starting a Task
+1. Confirm the task is the next sequential task or has explicit approval
+2. Mark status as `[/]` (in progress)
+3. Read all referenced documents (`DOMAIN.md`, `ARCHITECTURE.md`, `STYLEGUIDE.md`)
+
+### During Task Execution
+- Work only within the defined scope
+- Do not modify files outside the scope
+- Do not introduce changes not specified in the task
+
+### Task Completion Criteria
+A task is **complete** only when:
+1. All scope items are implemented
+2. The defined output is verified
+3. At least one commit exists referencing the task
+4. Status is updated to `[x]`
+
+### Verification Checklist Template
+For each task, verify:
+- [ ] Output matches the defined goal
+- [ ] No files modified outside scope
+- [ ] Code compiles/builds without errors
+- [ ] Existing functionality is not broken
+- [ ] Commit message follows `STYLEGUIDE.md` format
+- [ ] Task status updated in this file
+
+---
+
 ## Phase 1: Backend Foundation
 
 ### Task 1.1: Restructure Backend Folders

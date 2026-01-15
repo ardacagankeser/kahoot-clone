@@ -168,3 +168,11 @@ No nginx required for MVP. Go serves everything.
 4. **Synchronous operations.** No async job queues.
 
 These constraints are intentional. They keep the system simple and debuggable.
+
+---
+
+## Change Policy
+
+5. **Task-driven changes only.** All architectural changes must be linked to a task in `TASKS.md`.
+6. **No implicit refactors.** Do not refactor code, rename packages, or restructure modules unless explicitly defined in a task.
+7. **Document before changing.** Architectural modifications require updating `ARCHITECTURE.md` as part of the task scope.

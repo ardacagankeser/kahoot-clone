@@ -44,6 +44,16 @@
 
 ---
 
+## Task Execution Rules
+
+21. **Single-task execution.** Execute only one task at a time. Complete the current task and receive explicit confirmation before starting the next.
+22. **No autonomous task switching.** Do not proceed to subsequent tasks without explicit human approval.
+23. **TASKS.md is the single source of truth.** All work must trace back to a defined task in `TASKS.md`. No undocumented work.
+24. **Mark task progress.** Update task status in `TASKS.md` before and after execution (`[ ]` → `[/]` → `[x]`).
+25. **Verify before marking complete.** A task is only complete when its defined output criteria are met and verified.
+
+---
+
 ## Violation Handling
 
 If any rule is violated:

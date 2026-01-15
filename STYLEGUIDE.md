@@ -253,14 +253,34 @@ func GetQuiz(id string) (*Quiz, error) {
 
 ## Git
 
-### Commits
+### Commit Message Format
 
-- Present tense: "Add quiz deletion" not "Added"
-- First line: max 50 chars, imperative mood
-- Reference task: "Add quiz deletion (#3)"
+All commit messages **must** follow this format:
+
+```
+<type>(<scope>): <description> [Task X.Y]
+
+[optional body]
+```
+
+**Required fields:**
+- `type`: One of `feat`, `fix`, `refactor`, `docs`, `chore`, `test`
+- `scope`: Affected component (e.g., `quiz`, `ws`, `frontend`)
+- `description`: Present tense, max 50 chars, imperative mood
+- `[Task X.Y]`: Reference to task in `TASKS.md`
+
+**Examples:**
+- `feat(quiz): add delete endpoint [Task 1.3]`
+- `fix(ws): handle disconnection race condition [Task 3.2]`
+- `docs(domain): add terminology enforcement section [Task 0.1]`
+
+### Commit Frequency
+
+- **At least one commit per task.** Each task must have at least one associated commit.
+- **Atomic commits.** One logical change per commit. No bundling unrelated changes.
 
 ### Branches
 
 - `main` is always deployable
-- Feature branches: `feature/quiz-crud`
+- Feature branches: `feature/task-X.Y-description`
 - No long-lived branches
